@@ -22,15 +22,15 @@ public class QfZookeeperApplicationTests {
 		//创建连接
 		ZooKeeper zooKeeper = new ZooKeeper("10.20.151.43:2181",2000,new MyWatcher());
 
-		//String s = zooKeeper.create("/newyou", "data".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+		String s = zooKeeper.create("/newyou", "data".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
 
-		/*Stat stat = zooKeeper.exists("/newlol", false);
+		Stat stat = zooKeeper.exists("/newlol", false);
 		zooKeeper.setData("/newlol","jiangshi".getBytes(),-1);
-		System.out.println(stat.getEphemeralOwner());*/
-		//zooKeeper.getData("/newlol",new MyWatcher(),null);
+		System.out.println(stat.getEphemeralOwner());
+		zooKeeper.getData("/newlol",new MyWatcher(),null);
 		Stat exists = zooKeeper.exists("/newttt", new MyWatcher());
 
-		//zooKeeper.close();
+		zooKeeper.close();
 		System.in.read();
 	}
 
